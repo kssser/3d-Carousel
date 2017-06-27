@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Akatsuki</title>
+	<style>
+		*{margin:0;padding:0}
+		section{
+			width:400px;
+			height:530px;
+			margin:50px auto 0;
+			-ms-perspective:600px;
+			-webkit-perspective:600px;
+			-moz-perspective:600px;
+			-o-perspective:600px;
+			perspective:600px;
+			position:relative;
+		}
+		ul li{
+			position: absolute;
+			left:0;top:0px;
+			list-style:none;
+			-ms-transition:transform .5s;
+			-webkit-transition:transform .5s;
+			-o-transition:transform .5s;
+			-moz-transition:transform .5s;
+			transition:transform .5s;
+		}
+		ul li img{
+			width:400px;
+			height:530px;
+		}
+		li.king{
+			z-index:3;
+		}
+		li.left1{
+			-ms-transform:rotateY(30deg) translateZ(-150px) translateX(-100px);
+			-webkit-transform:rotateY(30deg) translateZ(-150px) translateX(-100px);
+			-o-transform:rotateY(30deg) translateZ(-150px) translateX(-100px);
+			-moz-transform:rotateY(30deg) translateZ(-150px) translateX(-100px);
+			transform:rotateY(30deg) translateZ(-150px) translateX(-100px);
+			z-index:2;
+		}
+		li.left2{
+			-ms-transform:rotateY(40deg) translateZ(-300px) translateX(-200px);
+			-webkit-transform:rotateY(40deg) translateZ(-300px) translateX(-200px);
+			-o-transform:rotateY(40deg) translateZ(-300px) translateX(-200px);
+			-moz-transform:rotateY(40deg) translateZ(-300px) translateX(-200px);
+			transform:rotateY(40deg) translateZ(-300px) translateX(-200px);
+			z-index:1;
+		}
+		li.right1{
+			-ms-transform:rotateY(-30deg) translateZ(-150px) translateX(100px);
+			-webkit-transform:rotateY(-30deg) translateZ(-150px) translateX(100px);
+			-o-transform:rotateY(-30deg) translateZ(-150px) translateX(100px);
+			-moz-transform:rotateY(-30deg) translateZ(-150px) translateX(100px);
+			transform:rotateY(-30deg) translateZ(-150px) translateX(100px);
+			z-index:2;
+		}
+		li.right2{
+			-ms-transform:rotateY(-40deg) translateZ(-300px) translateX(200px);
+			-webkit-transform:rotateY(-40deg) translateZ(-300px) translateX(200px);
+			-o-transform:rotateY(-40deg) translateZ(-300px) translateX(200px);
+			-moz-transform:rotateY(-40deg) translateZ(-300px) translateX(200px);
+			transform:rotateY(-40deg) translateZ(-300px) translateX(200px);
+			z-index:1;
+		}
+		li.bench-warmer{
+			opacity:0;
+			filter:alpha(opacity=0);
+		}
+		section span{
+			position:absolute;
+			width:60px;
+			height:60px;
+			left:-308px;
+			top:50%;
+			margin-top:-30px;
+			z-index:3;
+			background-color:rgba(0,0,255,0.4);
+			color:white;
+			text-align:center;
+			line-height:60px;
+			font-size: 50px;
+			cursor:pointer;
+		}
+		section span:last-of-type{
+			left:auto;
+			right:-308px;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var oBtns=document.querySelectorAll('span');
+			var aLis=document.querySelectorAll('li');
+			var aClasses=['left2','left1','king','right1','right2','bench-warmer','bench-warmer','bench-warmer','bench-warmer'];
+			oBtns[0].onclick=function(){
+				aClasses.push(aClasses.shift());
+				for(var i=0,len=aLis.length;i<len;i++){
+					aLis[i].className=aClasses[i];
+				}
+			}
+			oBtns[1].onclick=function(){
+				aClasses.unshift(aClasses.pop());
+				for(var i=0,len=aLis.length;i<len;i++){
+					aLis[i].className=aClasses[i];
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<section>
+		<ul>
+			<li class="left2"><img src="images/1.jpg" alt=""></li>
+			<li class="left1"><img src="images/2.jpg" alt=""></li>
+			<li class="king"><img src="images/3.jpg" alt=""></li>
+			<li class="right1"><img src="images/4.jpg" alt=""></li>
+			<li class="right2"><img src="images/5.jpg" alt=""></li>
+			<li class="bench-warmer"><img src="images/6.jpg" alt=""></li>
+			<li class="bench-warmer"><img src="images/7.jpg" alt=""></li>
+			<li class="bench-warmer"><img src="images/8.jpg" alt=""></li>
+			<li class="bench-warmer"><img src="images/9.jpg" alt=""></li>
+		</ul>
+		<span>&lt;</span>
+		<span>&gt;</span>
+	</section>
+</body>
+</html>
